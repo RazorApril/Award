@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>抽奖程序</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .result {
+            font-size: 24px;
+            margin-top: 20px;
+            color: black;
+        }
+        .winner {
+            color: red;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>抽奖程序</h1>
+    <p>中奖结果：</p>
+    <div class="result" id="result">点击下面的按钮查看中奖结果</div>
+    <button id="drawButton">抽奖</button>
+
+    <script>
+        // 生成抽奖结果
+        var randomNumber = Math.random();
+        var result = "";
+
+        if (randomNumber < 0.05) {
+            result = "特等奖";
+        } else if (randomNumber < 0.2) {
+            result = "一等奖";
+        } else if (randomNumber < 0.5) {
+            result = "二等奖";
+        } else {
+            result = "谢谢参与";
+        }
+
+        // 显示抽奖结果
+        var resultElement = document.getElementById("result");
+        resultElement.innerHTML = "中奖结果：<span class='winner'>" + result + "</span>";
+    </script>
+</body>
+</html>
